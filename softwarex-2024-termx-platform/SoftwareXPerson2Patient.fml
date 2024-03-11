@@ -1,0 +1,52 @@
+map "http://termx.health/fhir/StructureMap/SoftwareXPerson2Patient" = "SoftwareXPerson2Patient"
+
+conceptmap "http://taltech.ee/ConceptMap/person-to-patient" {
+  prefix s = "src"
+  prefix t = "dst"
+
+  s:M - t:male
+  s:F - t:female
+  s:U - t:unknown
+}
+
+uses "https://taltech.ee/termx/StructureDefinition/SoftwareXPerson" alias Person as source
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as target
+
+group example(source Person : Person, target Patient : Patient) {
+  Person ->
+   Patient then {
+    Person ->
+   Patient.id = uuid() as uuid7 "rule_31";
+  } "rule_30";
+  Person ->
+   Patient then {
+    Person ->
+   Patient.identifier = create('Identifier') as a then {
+      Person ->
+   a.system = ('https://fhir.ee/sid/pid/est/ni') as constant8 "const_34";
+      Person.code as b ->
+   a.value = b "dset_35";
+    } "rule_33";
+  } "rule_32";
+  Person ->
+   Patient then {
+    Person ->
+   Patient.name = create('HumanName') as a then {
+      Person.lastname as b ->
+   a.family = b "dset_38";
+      Person.firstname as c ->
+   a.given = c "dset_39";
+    } "rule_37";
+  } "rule_36";
+  Person ->
+   Patient then {
+    Person.gender as a ->
+   Patient.gender = translate(a, '#http://taltech.ee/ConceptMap/person-to-patient', 'code') as translate15 "translate_41";
+  } "rule_40";
+  Person ->
+   Patient then {
+    Person.birthdate as a ->
+   Patient.birthDate = a "dset_43";
+  } "rule_42";
+}
+

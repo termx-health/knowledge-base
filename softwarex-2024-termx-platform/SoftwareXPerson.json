@@ -1,0 +1,64 @@
+{
+    "id" : "SoftwareXPerson",
+    "name" : "SoftwareXPerson",
+    "resourceType" : "StructureDefinition",
+    "kind" : "logical",
+    "url" : "https://taltech.ee/termx/StructureDefinition/SoftwareXPerson",
+    "type" : "https://taltech.ee/termx/StructureDefinition/SoftwareXPerson",
+    "fhirVersion" : "5.0.0",
+    "abstract" : false,
+    "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Element",
+    "derivation" : "specialization",
+    "differential" : {
+      "element" : [ {
+        "id" : "SoftwareXPerson",
+        "path" : "SoftwareXPerson"
+      }, {
+        "id" : "SoftwareXPerson.code",
+        "max" : "1",
+        "min" : 1,
+        "path" : "SoftwareXPerson.code",
+        "short" : "Personal code",
+        "type" : [ {
+          "code" : "string"
+        } ]
+      }, {
+        "id" : "SoftwareXPerson.lastname",
+        "max" : "1",
+        "min" : 1,
+        "path" : "SoftwareXPerson.lastname",
+        "short" : "Last name",
+        "type" : [ {
+          "code" : "string"
+        } ]
+      }, {
+        "id" : "SoftwareXPerson.firstname",
+        "max" : "1",
+        "min" : 1,
+        "path" : "SoftwareXPerson.firstname",
+        "short" : "First name",
+        "type" : [ {
+          "code" : "string"
+        } ]
+      }, {
+        "id" : "SoftwareXPerson.gender",
+        "max" : "1",
+        "min" : 0,
+        "path" : "SoftwareXPerson.gender",
+        "short" : "Gender (M/F/U)",
+        "type" : [ {
+          "code" : "string"
+        } ]
+      }, {
+        "id" : "SoftwareXPerson.birthdate",
+        "max" : "1",
+        "min" : 0,
+        "path" : "SoftwareXPerson.birthdate",
+        "short" : "Date of birth",
+        "type" : [ {
+          "code" : "date"
+        } ]
+      } ]
+    }
+  }
+  

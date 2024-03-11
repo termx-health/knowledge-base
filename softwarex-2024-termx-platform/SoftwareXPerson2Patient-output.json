@@ -1,0 +1,13 @@
+{
+    "resourceType" : "Patient",
+    "id" : "efb6521f-5ce2-4b1c-84da-2e10a4b5ee49",
+    "identifier" : [{
+      "system" : "https://fhir.ee/sid/pid/est/ni",
+      "value" : "37302102711"
+    }],
+    "name" : [{
+      "family" : "Bossenko",
+      "given" : ["Igor"]
+    }],
+    "gender" : "male"
+}
